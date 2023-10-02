@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.21)
 
-include(cmake/warnings.cmake)
+include(${CMAKE_CURRENT_LIST_DIR}/cmake/warnings.cmake)
 if(GVOX_USE_VCPKG)
     include(cmake/vcpkg.cmake)
 endif()
@@ -53,9 +53,9 @@ if(GVOX_BUILD_FOR_JAVA)
 endif()
 
 add_library(${PROJECT_NAME}
-    "src/gvox.cpp"
-    "src/stream.cpp"
-    "src/format.cpp"
+    "${CMAKE_CURRENT_LIST_DIR}/src/gvox.cpp"
+    "${CMAKE_CURRENT_LIST_DIR}/src/stream.cpp"
+    "${CMAKE_CURRENT_LIST_DIR}/src/format.cpp"
 )
 
 set(GVOX_INPUT_STREAMS
@@ -148,19 +148,19 @@ find_package(gcem CONFIG REQUIRED)
 target_link_libraries(${PROJECT_NAME} PRIVATE gcem)
 
 foreach(NAME ${GVOX_INPUT_STREAMS})
-    target_sources(${PROJECT_NAME} PRIVATE "src/streams/input/${NAME}.cpp")
+    target_sources(${PROJECT_NAME} PRIVATE "${CMAKE_CURRENT_LIST_DIR}/src/streams/input/${NAME}.cpp")
 endforeach()
 foreach(NAME ${GVOX_OUTPUT_STREAMS})
-    target_sources(${PROJECT_NAME} PRIVATE "src/streams/output/${NAME}.cpp")
+    target_sources(${PROJECT_NAME} PRIVATE "${CMAKE_CURRENT_LIST_DIR}/src/streams/output/${NAME}.cpp")
 endforeach()
 foreach(NAME ${GVOX_PARSERS})
-    target_sources(${PROJECT_NAME} PRIVATE "src/parsers/${NAME}.cpp")
+    target_sources(${PROJECT_NAME} PRIVATE "${CMAKE_CURRENT_LIST_DIR}/src/parsers/${NAME}.cpp")
 endforeach()
 foreach(NAME ${GVOX_SERIALIZERS})
-    target_sources(${PROJECT_NAME} PRIVATE "src/serializers/${NAME}.cpp")
+    target_sources(${PROJECT_NAME} PRIVATE "${CMAKE_CURRENT_LIST_DIR}/src/serializers/${NAME}.cpp")
 endforeach()
 foreach(NAME ${GVOX_CONTAINERS})
-    target_sources(${PROJECT_NAME} PRIVATE "src/containers/${NAME}.cpp")
+    target_sources(${PROJECT_NAME} PRIVATE "${CMAKE_CURRENT_LIST_DIR}/src/containers/${NAME}.cpp")
 endforeach()
 
 if(BUILD_SHARED_LIBS)
@@ -218,5 +218,5 @@ endif()
 
 # Packaging
 if(NOT GVOX_DISABLE_PACKAGING)
-    include(cmake/packaging.cmake)
+    include(${CMAKE_CURRENT_LIST_DIR}/cmake/packaging.cmake)
 endif()
