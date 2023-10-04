@@ -12,6 +12,7 @@
 #include <new>
 #include <bit>
 #include <unordered_map>
+#include <cstring>
 
 #include <iostream>
 #include <iomanip>

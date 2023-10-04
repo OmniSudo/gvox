@@ -3,6 +3,7 @@
 #include "utils/handle.hpp"
 
 #include <bit>
+#include <cstring>
 
 auto gvox_create_voxel_desc(GvoxVoxelDescCreateInfo const *info, GvoxVoxelDesc *handle) GVOX_FUNC_ATTRIB->GvoxResult {
     ZoneScoped;

@@ -1,5 +1,6 @@
 #pragma once
 
+#define GVOX_ENABLE_TRACY 0
 #if GVOX_ENABLE_TRACY
 
 #if defined(__clang__) || defined(__GNUC__)

@@ -4,6 +4,7 @@
 #include <array>
 #include <cmath>
 #include <bit>
+#include <cstring>
 
 #include "gvox/core.h"
 #include "gvox/format.h"
