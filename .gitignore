@@ -15,5 +15,6 @@ imgui.ini
 
 assets/
 vcpkg/
+vcpkg_installed/
 
 tools/web/static-server*
